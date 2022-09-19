@@ -1,0 +1,5 @@
+In Python you can learn more program knowledge
+In Python you can know how easy if you use python
+In Python you can control file
+In Python you can use web
+In Python you can use opencv
