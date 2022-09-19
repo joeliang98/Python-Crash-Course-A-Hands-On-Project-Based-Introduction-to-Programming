@@ -49,7 +49,20 @@
     pass语句,什么都不做直接跳过
 
 5.存储数据
-    
+    保存用户提供的信息
+    简单的方式是使用模块json来存储数据
+    块json让你能够将简单的Python数据结构转储到文件中
+    并在程序再次运行时加载该文件中的数据
+    你还可以使用json在Python程序之间分享数据
+
+    json.dump()存储
+
+    json.load()读取    
+
+6.重构
+    代码能够正确地运行，
+    但可做进一步的改进——将代码划分为一系列
+    完成具体工作的函数，这样的过程被称为重构 
 
 
 '''
@@ -207,18 +220,47 @@ filenames = ["alice.txt", \
 for filename in filenames:
     count_words(filename)
 '''
+#demo13
+'''
+import json
 
+numbers = [2,3,5,7,11,13]
 
+filename = "numbers.json"
+with open(filename,'w') as f_obj:
+    json.dump(numbers,f_obj)
+'''
 
+#demo14
+'''
+import json
+filename = 'numbers.json'
+with open(filename) as f_obj:
+    numbers = json.load(f_obj)
+print(numbers)
+'''
 
+#demo15
+'''
+import json
 
+username = input("what is your name?")
 
+filename = "username.json"
+with open(filename,'w') as f_obj:
+    json.dump(username,f_obj)
+    print("We'll remeber you when you come back,"+username+"!")
+'''
 
+#demo16
+'''
+import json
 
-
-
-
-
+filename = 'username.json'
+with open(filename) as f_obj:
+    username = json.load(f_obj)
+    print("welcome back, "+username+"!")
+'''
 
 
 
@@ -355,11 +397,21 @@ with open("alice.txt") as file_object:
     contents = file_object.read()
     print(contents.lower().count("row"))
 '''
+#practice11
+'''
+import json
+filename = "practice11.json"
+number = input("Please input a number:")
+with open(filename,'w') as f_obj:
+    json.dump(number,f_obj)
 
 
-
-
-
+import json
+filename = "practice11.json"
+with open(filename) as f_obj:
+    num = json.load(f_obj)
+    print("I know your favourite number! It's is "+num)
+'''
 
 
 
